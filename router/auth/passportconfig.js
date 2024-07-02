@@ -5,7 +5,7 @@ const cookies = require('cookie-session')
 
 // googlestrategy config
 passport.use(new googlestrategy({
-    callbackURL:'https://daroharbackendhttp.onrender.com:3000/auth/google/callback',
+    callbackURL:'https://daroharbackendhttp.onrender.com/auth/google/callback',
     clientID:"389664460247-4jmd1i1tk9unu8mdrne0th0dbonrir7n.apps.googleusercontent.com",
     clientSecret:"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",
 },async (acessToken,refreshToken,profile,done)=>{
