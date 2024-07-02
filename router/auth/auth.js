@@ -33,7 +33,7 @@ router.get('/google',passport.authenticate('google',{
 
 
 router.get('/google/callback',passport.authenticate('google',{
-    failureRedirect:'/',
+    failureRedirect:'http://localhost:3000',
     successRedirect:'/'
 }),()=>{
     console.log('google called us back') 
@@ -41,7 +41,7 @@ router.get('/google/callback',passport.authenticate('google',{
 
 
 router.post('/emaillogin',passport.authenticate('local',{
-    failureRedirect:'http://localhost:5000',
+    failureRedirect:'http://localhost:3000',
     successRedirect:'/'
 }))
 
