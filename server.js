@@ -31,7 +31,6 @@ app.use('/auth',auth)
 app.use('/buyer',buyer) 
 app.use('/seller',seller)
 app.get('/',(req,res)=>{
-    console.log('request recieved')
     res.send('hello')
 })
 
