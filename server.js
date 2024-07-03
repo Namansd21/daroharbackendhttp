@@ -22,13 +22,13 @@ app.use(express.urlencoded({extended:false}))
  
 
 //cookies
-
+ 
 
 
 app.use('/product',product)
 app.use('/email',email)
 app.use('/auth',auth)
-app.use('/buyer',buyer)
+app.use('/buyer',buyer) 
 app.use('/seller',seller)
 app.get('/',(req,res)=>{
     console.log('request recieved')

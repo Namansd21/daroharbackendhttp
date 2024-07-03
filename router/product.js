@@ -13,5 +13,5 @@ router.get('/get/name/:ne',async (req,res)=>{
 router.get('/get/category/:ca',async (req,res)=>{
     res.send(JSON.stringify(await controller.getproductbycategory(req.params.ca) ))
 })
-
+ 
 module.exports = router;

@@ -43,8 +43,8 @@ let createandsaveseller = async (data)=>{
 let getseller = async (email)=>{
    try{
     const resp = await seller.find({Email:email});
-    console.log(resp)
-    return {ok:true,seller:resp}
+   //  console.log(resp,'this is inside seller')
+    return {ok:true,seller:resp[0]}
    }
    catch(err)
    {
@@ -54,11 +54,10 @@ let getseller = async (email)=>{
 
 let update = async (email,updatedata)=>{
    try{
-      const resp = seller.updateOne({Email:email},updatedata);
+      const resp = await seller.updateOne({Email:email},updatedata);
       return {ok:true,response:resp};
    }
-   catch(error)
-   {
+   catch(error){
       return {ok:false,error:err}
    }
 }

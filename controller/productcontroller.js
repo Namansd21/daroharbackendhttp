@@ -14,13 +14,13 @@ let addproduct = async(data,selleremail)=>{
                  const session = await mongoose.startSession();
                  await session.startTransaction();
                  try{
-                      const sellerdata= await sellercontroller.getseller(selleremail);
+                      const sellerdata= (await sellercontroller.getseller(selleremail)).seller;
                       let addedprod = sellerdata.AddedProducts;
-                      let SellerId = seller.obj_id;
+                      let SellerId = sellerdata._id;
                       let SellerAddress = sellerdata.Address;
                       let {Name,Category,Images,Price,Description} = data;
                       if(!Array.isArray(Images) || Images.length ==0 || !Name || !Category || !Price || !Description)
-                        {
+                        { 
                             throw new Error('request parameter are not correct')
                         }
                       const obj = new product({
@@ -34,13 +34,14 @@ let addproduct = async(data,selleremail)=>{
                       })
 
                       const resp = await obj.save();
-                      await addedprod.push(resp.obj_id);
+                      await addedprod.push(resp._id);
+                      console.log(addedprod)
                       await sellercontroller.update(selleremail,{AddedProducts:addedprod});
-                      console.log(resp)
                       return  {ok:true,response:resp}
                  }
                  catch(err)
                  {
+                    console.log(err)
                     await session.abortTransaction();
                     await session.endSession();
                     return {ok:false,error:err}
