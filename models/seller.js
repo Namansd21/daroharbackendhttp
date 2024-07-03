@@ -5,39 +5,35 @@ let seller = new mongoose.Schema({
         type:String,
         required:true
     },
-    email:{
+    Email:{
         type:String,
         required:true
     },
-    mailverified:{
-        type:Boolean,
-        required:true
-    },
-    address:{
+    Address:{
         type:String,
         required:true
     },
-    upiid:{
+    UpiId:{
         type:String,
         required:true
     },
-    phno:{
+    Phno:{
         type:String,
         required:true
     },
-    addedproducts:{
-       type:Array[String],
+    AddedProducts:{
+       type:[String],
        default:[]
     },
-    balance:{
-        type:String,
-        Default:'0'
+    Balance:{
+        type:Number,
+        Default:0
     },
-    sales:{
+    Sales:{
         type:Object,
         default:{}  
     }
 
 })
 
-module.exports = mongoose.Model('seller',seller);
+module.exports = mongoose.model('seller',seller);

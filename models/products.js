@@ -5,15 +5,15 @@ let product = new mongoose.Schema({
         type:String,
         required:true
     },
-    category:{
+    Category:{
         type:String,
         required:true,
     },
-    images:{
-       type:Array[String],
+    Images:{
+       type:[String],
        default :[]
     },
-    price:{
+    Price:{
         type:String,
         required:true,
     },
@@ -21,15 +21,15 @@ let product = new mongoose.Schema({
         type:String,
         required:true,
     },
-    sellerid:{
+    SellerId:{
         type:String,
         required:true,
     },
-    selleraddress:{
+    SellerAddress:{
         type:String,
         required:true,
     },
 
 })
 
-module.exports = mongoose.Model('product',product)
+module.exports = mongoose.model('product',product)

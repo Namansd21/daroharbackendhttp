@@ -5,18 +5,22 @@ let buyer = new mongoose.Schema({
         type:String,
         required:true
     },
-    googleid:{
+    GoogleId:{
         type:String,
+        default:undefined
     },
-    email:{
+    Email:{
         type:String,
         required:true
     },
-    mailverified:{
+    MailVerified:{
         type:Boolean,
         default:false,
     },
-
+    Address:{
+        type:String,
+        default:""
+    },
 })
 
-module.exports = mongoose.Model('buyer',buyer);
+module.exports = mongoose.model('buyer',buyer);
